@@ -4,8 +4,8 @@
 > filenames.txt
 > dirname.txt
 FolderPath="./bash_homework/"
-CUR_DIR=$(ls -1 "$FolderPath")
-for val in $CUR_DIR
+DIR=$(ls -1 "$FolderPath")
+for val in $DIR
 do
 full_path="$FolderPath$val"
 if [ -f "$full_path" ]; then
