@@ -44,3 +44,35 @@ Mapping Quality是衡量Read比对到当前位点正确性的置信度，以Phre
 其中，P为错误率，MQ为Mapping Quality。可以看出，MQ越大，错误率越低，数据质量越好。
 #### （3.4）仅根据sam/bam文件的信息，能否推断出read mapping到的区域对应的参考基因组序列? 
 是可行的。通过通过CIGAR和MD标签可推断参考基因组序列。CIGAR提供了比对的结构，而MD标签明确了了参考序列的具体差异，故将二者结合可以推断参考序列。
+#### （4）使用bwa对Yeast基因组sacCer3.fa建立索引，并利用bwa将THA2.fa，mapping到Yeast参考基因组上，并进一步转化输出得到THA2-bwa.sam文件。
+安装bwa和下载sacCer3.fa的过程省略
+code:
+```
+bwa index sacCer3.fa
+```
+result:
+```
+[bwa_index] Pack FASTA... 0.14 sec
+[bwa_index] Construct BWT for the packed sequence...
+[bwa_index] 7.16 seconds elapse.
+[bwa_index] Update BWT... 0.13 sec
+[bwa_index] Pack forward-only FASTA... 0.11 sec
+[bwa_index] Construct SA from BWT and Occ... 1.88 sec
+[main] Version: 0.7.19-r1273
+[main] CMD: bwa index sacCer3.fa
+[main] Real time: 9.548 sec; CPU: 9.437 sec
+```
+code:
+```
+bwa mem sacCer3.fa THA2.fa > THA2-bwa.sam
+```
+result:
+```
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+[M::process] read 1250 sequences (31877 bp)...
+[M::mem_process_seqs] Processed 1250 reads in 0.011 CPU sec, 0.020 real sec
+[main] Version: 0.7.19-r1273
+[main] CMD: bwa mem sacCer3.fa THA2.fa
+[main] Real time: 0.084 sec; CPU: 0.049 sec
+```
+成功输出THA2-bwa.sam文件
