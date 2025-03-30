@@ -1,3 +1,4 @@
+### Mapping
 #### （1） 请阐述bowtie中利用了 BWT 的什么性质提高了运算速度？并通过哪些策略优化了对内存的需求？
 **Bowtie利用BWT的压缩特性提高了运算速度：** 
 BWT将原始参考基因组序列转换为一种更紧凑的表示形式（BWT字符串），同时保留序列的局部重复模式。这种转换通过将相似字符聚集，提高了后续索引的压缩率。
@@ -76,3 +77,5 @@ result:
 [main] Real time: 0.084 sec; CPU: 0.049 sec
 ```
 成功输出THA2-bwa.sam文件
+### Genome Browser
+![NUR1](/IGV.png "NUR1")
