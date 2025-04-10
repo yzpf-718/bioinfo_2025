@@ -1,3 +1,4 @@
+### bedtools&samtools作业
 #### （1）我们提供的bam文件`COAD.ACTB.bam`是单端测序分析的结果还是双端测序分析的结果？为什么？
 该文件是单端测序分析的结果。原因如下：
 在终端中输入如下命令：
@@ -53,3 +54,25 @@ samtools index COAD.ACTB.sorted.bam
 bedtools genomecov -split -ibam COAD.ACTB.sorted.bam -bg > COAD.ACTB.coverage.bedgraph
 exit 0
 ```
+### 课件后作业
+#### 1.人类基因组的大小以及基本组成是哪些？
+人类基因组大小约为3.1Gb。（数据来源：NCBI，物种Homo Sapiens，参考基因组GRCh38.p14，时间为2022年2月3日。） 
+如果根据功能来划分，人类基因组可以分为编码片段和非编码片段。非编码片段又可细分为非编码RNA基因、调控序列（增强子等）、转座子等。
+#### 2.2.基因中的非编码RNA的最新注释是多少个了？请详细列一下其中的非编码RNA的细分类型的数目，并对主要的非编码RNA是做什么的用1-2句话解释一下。
+目前，人类基因组中的非编码RNA的总数为59291。以下是部分非编码RNA具体细分各类型的数目。
+lncRNA	34914
+miRNA	1879
+Mt_rRNA	2
+Mt_tRNA	22
+rRNA	47	
+scaRNA	49	
+snoRNA	942
+snRNA	1901	
+sRNA	5
+vault_RNA	4	
+（数据来源：GENCODE。Release 47，参考基因组GRCh38.p14，发布时间2024年10月）
+主要的非编码RNA的作用：
+lncRNA（长非编码RNA）：长度大于200个核苷酸，参与表观遗传调控、细胞周期调控等。
+miRNA（微小RNA）：长度约为20个核苷酸，结合mRNA抑制翻译或促进降解，调控基因表达。
+snRNA（小核RNA）：长度约为150个核苷酸，在细胞核中加工pre-mRNA。
+snoRNA（小核仁RNA）：在细胞核中指导rRNA，tRNA，snRNA等的化学修饰
